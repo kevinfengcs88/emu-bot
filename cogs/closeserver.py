@@ -1,6 +1,4 @@
-import discord
 from discord.ext import commands
-import asyncio
 import os
 
 class Closeserver(commands.Cog):
@@ -14,8 +12,11 @@ class Closeserver(commands.Cog):
 
     @commands.command()
     async def closeserver(self, ctx):
-        os.startfile("C:/Users/Kevin/Desktop/commando2.bat")
-        await ctx.send("Server closed.")
+        try:
+            os.startfile("C:/Users/Kevin/Desktop/commando2.bat")
+            await ctx.send("Server closed.")
+        except:
+            await ctx.send("I am currently running in the cloud, so I can't close the server for you.")
 
 def setup(client):
     client.add_cog(Closeserver(client))
