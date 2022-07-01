@@ -4,7 +4,7 @@ import random
 import os
 from dotenv import load_dotenv
 from discord.ext import commands
-
+from webserver import keep_alive
 client = commands.Bot(command_prefix="!")
 
 @client.command()
@@ -42,6 +42,7 @@ async def on_message(message):
         await message.channel.send(f"Hi {username}!")
     await client.process_commands(message)
 
+keep_alive()
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
 client.run(TOKEN)

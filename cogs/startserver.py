@@ -14,8 +14,10 @@ class Startserver(commands.Cog):
 
     @commands.command()
     async def startserver(self, ctx):
-        os.startfile("C:/Users/Kevin/Desktop/commando.bat")
-        await ctx.send("Server started.")
-
+        try:
+            os.startfile("C:/Users/Kevin/Desktop/commando.bat")
+            await ctx.send("Server started.")
+        except:
+            await ctx.send("I am currently running in the cloud, so I can't start the server for you.")
 def setup(client):
     client.add_cog(Startserver(client))
