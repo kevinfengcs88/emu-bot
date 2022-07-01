@@ -17,8 +17,14 @@ A dedicated server enables a host to run a game server without connecting to it;
 
 The bot is able to start or close the game server via two batch files on my desktop. Each batch file is just one line of code and are as follows:
 
-`commando.bat`: start "" "C:\Program Files (x86)\Steam\steamapps\common\TheForestDedicatedServer\TheForestDedicatedServer.exe"
-`commando2.bat`: taskkill /IM TheForestDedicatedServer.exe
+`commando.bat`: 
+```
+start "" "C:\Program Files (x86)\Steam\steamapps\common\TheForestDedicatedServer\TheForestDedicatedServer.exe"
+```
+`commando2.bat`: 
+```
+taskkill /IM TheForestDedicatedServer.exe
+```
 
 `commando.bat` corresponds to the command `!startserver` and `commando2.bat` corresponds to the command `!closeserver`
 
