@@ -10,12 +10,12 @@ class Startserver(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print('startserver cog loaded')
+        print("startserver cog loaded")
 
     @commands.command()
     async def startserver(self, ctx):
-        os.startfile('C:/Users/Kevin/Desktop/commando.bat')
-        await ctx.send('Server started.')
+        os.startfile("C:/Users/Kevin/Desktop/commando.bat")
+        await ctx.send("Server started.")
 
 def setup(client):
     client.add_cog(Startserver(client))

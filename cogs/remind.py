@@ -9,18 +9,18 @@ class Remind(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print('remind cog loaded')
+        print("remind cog loaded")
 
     @commands.command()
     async def ping(self, ctx):
-        await ctx.send('pong')
+        await ctx.send("pong")
 
     @commands.command()
     async def remind(self, ctx, time, *, task):
         def convert(time):
             pos = ['s', 'm', 'h', 'd']
 
-            time_dict = {"s": 1, "m": 60, "h": 3600, "d": 3600*24}
+            time_dict = {'s': 1, 'm': 60, 'h': 3600, 'd': 3600*24}
 
             unit = time[-1]
 
@@ -38,10 +38,10 @@ class Remind(commands.Cog):
         if converted_time == -2:
             await ctx.send("Time must be an integer.")
             return
-        await ctx.send(f'Started reminder for **{task}** and will last {time}')
+        await ctx.send(f"Started reminder for **{task}** and will last {time}")
 
         await asyncio.sleep(converted_time)
-        await ctx.send(f'{ctx.author.mention} your reminder for **{task}** has expired.')
+        await ctx.send(f"{ctx.author.mention} your reminder for **{task}** has expired.")
 
 def setup(client):
     client.add_cog(Remind(client))

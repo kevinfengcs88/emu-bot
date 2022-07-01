@@ -10,12 +10,12 @@ class Closeserver(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print('closeserver cog loaded')
+        print("closeserver cog loaded")
 
     @commands.command()
     async def closeserver(self, ctx):
-        os.startfile('C:/Users/Kevin/Desktop/commando2.bat')
-        await ctx.send('Server closed.')
+        os.startfile("C:/Users/Kevin/Desktop/commando2.bat")
+        await ctx.send("Server closed.")
 
 def setup(client):
     client.add_cog(Closeserver(client))
