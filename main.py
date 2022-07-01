@@ -2,9 +2,9 @@ import asyncio
 import discord
 import random
 import os
+from dotenv import load_dotenv
 from discord.ext import commands
 
-client = discord.Client()
 client = commands.Bot(command_prefix="!")
 
 @client.command()
@@ -47,5 +47,7 @@ async def on_message(message):
         os.startfile('C:/Users/Kevin/Desktop/commando2.bat')
         await message.channel.send('Server closed.')
     await client.process_commands(message)
-
+load_dotenv()
+# TOKEN = 'OTkxNzExNjgyNDUzODMxNzgw.GguHpa.B6l9rAUBtVX5zfr-Sj8dqzYfOu3Wdb1ppFsrTc'
+TOKEN = os.getenv('TOKEN')
 client.run(TOKEN)
