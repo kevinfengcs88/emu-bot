@@ -1,11 +1,10 @@
-import asyncio
-import discord
-import random
 import os
 from dotenv import load_dotenv
 from discord.ext import commands
 from webserver import keep_alive
 client = commands.Bot(command_prefix="!")
+
+server_status = False
 
 @client.command()
 async def load(ctx, extension):

@@ -1,7 +1,6 @@
-import discord
 from discord.ext import commands
-import asyncio
 import os
+import main
 
 class Startserver(commands.Cog):
 
@@ -14,10 +13,14 @@ class Startserver(commands.Cog):
 
     @commands.command()
     async def startserver(self, ctx):
-        try:
-            os.startfile("C:/Users/Kevin/Desktop/commando.bat")
-            await ctx.send("Server started.")
-        except:
-            await ctx.send("I am currently running in the cloud, so I can't start the server for you.")
+        if (main.server_status == True):
+            await ctx.send("The server is already running.")
+        else:
+            try:
+                os.startfile("C:/Users/Kevin/Desktop/commando.bat")
+                main.server_status = True
+                await ctx.send("Server started.")
+            except:
+                await ctx.send("I am currently running in the cloud, so I can't start the server for you.")
 def setup(client):
     client.add_cog(Startserver(client))
