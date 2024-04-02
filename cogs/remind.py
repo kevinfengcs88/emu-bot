@@ -12,10 +12,6 @@ class Remind(commands.Cog):
         print("remind cog loaded")
 
     @commands.command()
-    async def ping(self, ctx):
-        await ctx.send("pong")
-
-    @commands.command()
     async def remind(self, ctx, time, *, task):
         def convert(time):
             pos = ['s', 'm', 'h', 'd']

@@ -1,8 +1,12 @@
 import os
+import discord
 from dotenv import load_dotenv
 from discord.ext import commands
 from webserver import keep_alive
-client = commands.Bot(command_prefix="!")
+
+intents = discord.Intents.all()
+
+client = commands.Bot(command_prefix='!', intents=intents)
 
 server_status = False
 
@@ -16,7 +20,7 @@ async def unload(ctx, extension):
 
 for filename in os.listdir("./cogs"):
     if filename.endswith(".py"):
-        client.load_extension(f"cogs.{filename[:-3]}")
+        client.load_extension(f"cogs.{filename[:-3]}")  
 
 @client.event
 async def on_ready():
@@ -41,7 +45,7 @@ async def on_message(message):
         await message.channel.send(f"Hi {username}!")
     await client.process_commands(message)
 
-keep_alive()
+# keep_alive()
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
 client.run(TOKEN)
